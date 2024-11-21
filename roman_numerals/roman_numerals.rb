@@ -11,7 +11,7 @@ module RomanNumerals
   def self.from_roman(number)
     matcher = number.scan(/M|CM|D|CD|C|XC|L|XL|X|IX|V|IV|I/)
     matcher.uniq.inject(0) do |pntr, element|
-      pntr += matcher.count(element) * EQUIVALENCES.invert[element]
+      pntr + matcher.count(element) * EQUIVALENCES.invert[element]
     end
   end
 
